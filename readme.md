@@ -66,35 +66,34 @@ Database will be stored in the ./data folder.
 ├── Dockerfile          # Docker build instructions
 └── README.md           # Documentation
 
-#🔑 API Endpoints
-Method	Endpoint	Description
-GET	/	Homepage with upload form & recent records
-POST	/upload	Upload and import CSV file
-GET	/sample	Download a sample CSV file
-GET	/export	Export database as CSV
-GET	/health	Health check (returns OK)
+## 🔑 API Endpoints
+
+| Method | Endpoint   | Description                          |
+|--------|------------|--------------------------------------|
+| GET    | `/`        | Homepage with upload form & recent records |
+| POST   | `/upload`  | Upload and import CSV file           |
+| GET    | `/sample`  | Download a sample CSV file           |
+| GET    | `/export`  | Export database as CSV               |
+| GET    | `/health`  | Health check (returns `OK`)          |
+
 ## 📊 Sample CSV
 name,email,age
 Alice,alice@example.com,30
 Bob,bob@example.org,25
-
 ## ⚡ Example Workflow
 
-Visit / and upload a CSV file.
+1. Visit `/` and upload a CSV file  
+2. App validates and imports rows  
+3. View the latest 50 records in the browser  
+4. Export full database with `/export`  
 
-App validates and imports rows.
-
-View latest 50 records in the browser.
-
-Export full database with /export.
+---
 
 ## 🛠️ Development Notes
 
-Database path defaults to /data/app.db. Override with:
-
-export DB_PATH=/custom/path/app.db
-
+- Database path defaults to: **`/data/app.db`**  
+  Override with:  
+  export DB_PATH=/custom/path/app.db
 
 Max upload size: 5 MB
-
 Emails must be unique. Duplicate rows will be reported as errors.
